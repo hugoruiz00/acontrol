@@ -60,6 +60,11 @@ public class HomeController {
     }
     
     @FXML
+    void showPaymentScreen(ActionEvent event) throws IOException {
+        SceneController.getPaymentScene(event);
+    }
+    
+    @FXML
     void fillPaymentsTable(MouseEvent event) {
         Person person = personsTable.getSelectionModel().getSelectedItem();
         if (person != null) {

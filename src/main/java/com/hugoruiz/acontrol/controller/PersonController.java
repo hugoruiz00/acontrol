@@ -39,6 +39,11 @@ public class PersonController {
     }
     
     @FXML
+    void showPaymentScreen(ActionEvent event) throws IOException {
+        SceneController.getPaymentScene(event);
+    }
+    
+    @FXML
     private void newWindow(ActionEvent event) throws IOException {
         NewWindowController.getNewPersonWindow();
         if(RegistrationStatus.isPersonAdded()) {

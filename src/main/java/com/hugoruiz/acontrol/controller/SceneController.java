@@ -36,6 +36,10 @@ public class SceneController {
     public static void getPersonScene(ActionEvent event) throws IOException {
         changeScreen(event, "view/person.fxml");
     }
+    
+    public static void getPaymentScene(ActionEvent event) throws IOException {
+        changeScreen(event, "view/payment.fxml");
+    }
 
     private static void changeScreen(ActionEvent event, String path) throws IOException {
         main = FXMLLoader.load(App.class.getResource(path));

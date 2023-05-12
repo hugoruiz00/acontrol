@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hugoruiz.acontrol.controller.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hugoruiz.acontrol.controller.PaymentController">
     <children>
         <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="150.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -42,22 +42,7 @@
                         <Font size="10.0" />
                     </font>
                 </Label>
-                <Button alignment="BASELINE_LEFT" defaultButton="true" graphicTextGap="8.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" text="Principal">
-                    <VBox.margin>
-                        <Insets bottom="30.0" />
-                    </VBox.margin>
-                    <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/nurse-16.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <padding>
-                        <Insets left="15.0" />
-                    </padding>
-                </Button>
-                <Button alignment="BASELINE_LEFT" graphicTextGap="8.0" layoutX="10.0" layoutY="211.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showPersonScreen" prefHeight="50.0" text="Personas">
+                <Button alignment="BASELINE_LEFT" graphicTextGap="8.0" layoutX="10.0" layoutY="211.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showHomeScreen" prefHeight="50.0" text="Principal">
                     <VBox.margin>
                         <Insets bottom="30.0" />
                     </VBox.margin>
@@ -81,7 +66,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                 </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="8.0" layoutX="10.0" layoutY="285.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showPaymentScreen" prefHeight="50.0" text="Cooperaciones">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="8.0" layoutX="10.0" layoutY="205.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showPersonScreen" prefHeight="50.0" text="Personas">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -101,7 +86,25 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
             </Button>
+                <Button alignment="BASELINE_LEFT" defaultButton="true" graphicTextGap="8.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" text="Cooperaciones">
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/nurse-16.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="15.0" />
+                    </padding>
+                </Button>
                 <Button id="exitBtn" fx:id="exitBtn" alignment="BASELINE_LEFT" graphicTextGap="8.0" layoutX="10.0" layoutY="365.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" styleClass="exitBtn" text="Exit">
                     <graphic>
                         <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
@@ -126,7 +129,7 @@
                         <Insets />
                     </VBox.margin>
                     <children>
-                        <Label id="title" fx:id="title" layoutX="10.0" styleClass="title" text="Principal" textFill="#515151">
+                        <Label id="title" fx:id="title" layoutX="10.0" styleClass="title" text="Cooperaciones" textFill="#515151">
                             <font>
                                 <Font name="Roboto Regular" size="18.0" />
                             </font>
@@ -139,17 +142,16 @@
                         <Insets left="15.0" top="15.0" />
                     </padding>
                 </Pane>
-            <TextField fx:id="searchBar" minHeight="-Infinity" prefHeight="30.0" promptText="Buscar persona...">
+            <TextField fx:id="searchBar" minHeight="-Infinity" prefHeight="30.0" promptText="Buscar...">
                <VBox.margin>
                   <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
                </VBox.margin>
             </TextField>
-            <TableView fx:id="personsTable" editable="true" fixedCellSize="60.0" maxHeight="-Infinity" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#fillPaymentsTable" prefHeight="188.0" prefWidth="703.0">
+            <TableView fx:id="paymentsTable" editable="true" fixedCellSize="60.0" maxHeight="-Infinity" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="362.0" prefWidth="713.0">
               <columns>
-                <TableColumn fx:id="numCol" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Número" />
-                <TableColumn fx:id="nameCol" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="Nombre" />
-                  <TableColumn fx:id="lastNameCol" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="Apellido" />
-                  <TableColumn fx:id="addressCol" maxWidth="1.7976931348623157E308" minWidth="199.0" prefWidth="-1.0" text="Barrio" />
+                <TableColumn fx:id="descriptionCol" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="Descripción" />
+                  <TableColumn fx:id="amountCol" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="Cantidad" />
+                  <TableColumn fx:id="dateCol" maxWidth="1.7976931348623157E308" minWidth="199.0" prefWidth="-1.0" text="Fecha" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -158,49 +160,10 @@
                   <Insets bottom="20.0" left="25.0" right="25.0" />
                </VBox.margin>
             </TableView>
-            <Label styleClass="subtitle" text="Cooperaciones" underline="true">
-               <VBox.margin>
-                  <Insets left="30.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TableView fx:id="paymentsTable" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="185.0" prefWidth="703.0">
-              <columns>
-                <TableColumn fx:id="descriptionCol" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="-1.0" text="Descripción" />
-                <TableColumn fx:id="dateCol" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="Fecha" />
-                  <TableColumn fx:id="amountCol" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="Cantidad" />
-                  <TableColumn fx:id="isPaidCol" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="Pagado" />
-              </columns>
-               <VBox.margin>
-                  <Insets bottom="20.0" left="25.0" right="25.0" />
-               </VBox.margin>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-            </TableView>
-            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="55.0" prefWidth="763.0">
+            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="500.0">
                <children>
-                  <Label fx:id="personSelected" text="No se ha seleccionado a una persona" AnchorPane.leftAnchor="25.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <VBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="132.0" AnchorPane.rightAnchor="30.0">
-                     <children>
-                        <Label fx:id="totalPayment" text="Total: $ 0.0" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Button alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" styleClass="addbutton" text="Pagar total">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </VBox>
+                  <Button alignment="CENTER" layoutX="25.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newWindow" prefHeight="31.0" prefWidth="148.0" styleClass="addbutton" text="Agregar cooperación" />
+                  <Button layoutX="637.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" styleClass="deletebutton" text="Dar de baja" />
                </children>
             </AnchorPane>
             </children>

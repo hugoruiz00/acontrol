@@ -6,6 +6,8 @@ package com.hugoruiz.acontrol.dao;
 
 import com.hugoruiz.acontrol.model.Payment;
 import com.hugoruiz.acontrol.util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
@@ -37,6 +39,15 @@ public class PaymentDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
+        }
+    }
+    
+    public List<Payment> getPayments() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("from Payment", Payment.class).list();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return new ArrayList<>();
         }
     }
 }
