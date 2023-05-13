@@ -21,6 +21,10 @@ public class NewWindowController {
     public static void getNewPersonWindow() throws IOException {
         getPopUpWindow("view/addPerson.fxml");
     }
+    
+    public static void getNewPaymentWindow() throws IOException {
+        getPopUpWindow("view/addPayment.fxml");
+    }
 
     private static void getPopUpWindow(String path) throws IOException {
         Stage stage = new Stage();

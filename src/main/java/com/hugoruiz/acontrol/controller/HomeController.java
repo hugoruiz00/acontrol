@@ -5,7 +5,7 @@ import com.hugoruiz.acontrol.dao.PersonDao;
 import com.hugoruiz.acontrol.model.Person;
 import com.hugoruiz.acontrol.model.PersonPayment;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDate;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,7 +40,7 @@ public class HomeController {
     private TableColumn<PersonPayment, String> descriptionCol;
     
     @FXML
-    private TableColumn<PersonPayment, Date> dateCol;
+    private TableColumn<PersonPayment, LocalDate> dateCol;
     
     @FXML
     private TableColumn<PersonPayment, Float> amountCol;
@@ -106,7 +106,6 @@ public class HomeController {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         addressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
-        //personsTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         descriptionCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPayment().getDescription()));
         dateCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPayment().getDate()));

@@ -53,10 +53,10 @@ public class PaymentController {
     
     @FXML
     private void newWindow(ActionEvent event) throws IOException {
-        NewWindowController.getNewPersonWindow();
-        if(RegistrationStatus.isPersonAdded()) {
+        NewWindowController.getNewPaymentWindow();
+        if(RegistrationStatus.isPaymentAdded()) {
             refreshScreen(event);
-            RegistrationStatus.setIsPersonAdded(false);
+            RegistrationStatus.setIsPaymentAdded(false);
         }
     }
     
@@ -79,7 +79,7 @@ public class PaymentController {
 
     private void setObservableList() {
         paymentsObservableList.clear();
-        //paymentsObservableList.addAll(personDao.getPersons());
+        paymentsObservableList.addAll(paymentDao.getPayments());
     }
 
     private void configureTables() {

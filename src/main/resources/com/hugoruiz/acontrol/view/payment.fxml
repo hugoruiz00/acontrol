@@ -162,8 +162,8 @@
             </TableView>
             <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="500.0">
                <children>
-                  <Button alignment="CENTER" layoutX="25.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newWindow" prefHeight="31.0" prefWidth="148.0" styleClass="addbutton" text="Agregar cooperación" />
-                  <Button layoutX="637.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" styleClass="deletebutton" text="Dar de baja" />
+                  <Button alignment="CENTER" layoutX="25.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newWindow" prefHeight="31.0" prefWidth="163.0" styleClass="addbutton" text="Agregar cooperación" />
+                  <Button layoutX="637.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" styleClass="deletebutton" text="Dar de baja" AnchorPane.rightAnchor="30.0" />
                </children>
             </AnchorPane>
             </children>

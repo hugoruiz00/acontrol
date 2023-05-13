@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -28,11 +29,11 @@ public class Payment {
     private float amount;
     
     @Column(name="date")
-    private Date date;
+    private LocalDate date;
     
     public Payment(){}
 
-    public Payment(String description, float amount, Date date) {
+    public Payment(String description, float amount, LocalDate date) {
         this.description = description;
         this.amount = amount;
         this.date = date;
@@ -58,11 +59,11 @@ public class Payment {
         this.amount = amount;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }
