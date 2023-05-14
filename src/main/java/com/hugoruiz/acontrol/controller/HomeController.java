@@ -6,19 +6,24 @@ import com.hugoruiz.acontrol.model.Person;
 import com.hugoruiz.acontrol.model.PersonPayment;
 import java.io.IOException;
 import java.time.LocalDate;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 
 public class HomeController {
     @FXML
@@ -111,6 +116,8 @@ public class HomeController {
         dateCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPayment().getDate()));
         amountCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPayment().getAmount()));
         isPaidCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().isIsPaid()));
+        isPaidCol.setCellFactory(column -> new PaidCheckBoxTableCell());       
+        
     }
 
     private void fillTable() {

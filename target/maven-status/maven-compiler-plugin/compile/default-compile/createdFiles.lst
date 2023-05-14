@@ -5,7 +5,6 @@ com\hugoruiz\acontrol\controller\PaymentController.class
 module-info.class
 com\hugoruiz\acontrol\controller\SceneController.class
 com\hugoruiz\acontrol\model\Person.class
-.netbeans_automatic_build
 com\hugoruiz\acontrol\model\PersonPaymentId.class
 com\hugoruiz\acontrol\model\PersonPayment.class
 com\hugoruiz\acontrol\controller\AddPaymentController.class

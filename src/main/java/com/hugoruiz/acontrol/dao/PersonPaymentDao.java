@@ -4,7 +4,6 @@
  */
 package com.hugoruiz.acontrol.dao;
 
-import com.hugoruiz.acontrol.model.Person;
 import com.hugoruiz.acontrol.model.PersonPayment;
 import com.hugoruiz.acontrol.util.HibernateUtil;
 import java.util.ArrayList;
@@ -23,6 +22,22 @@ public class PersonPaymentDao {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.persist(personPayment);
+            transaction.commit();
+            return transaction.getStatus() == TransactionStatus.COMMITTED;
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public Boolean updatePersonPayment(PersonPayment personPayment) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.merge(personPayment);
             transaction.commit();
             return transaction.getStatus() == TransactionStatus.COMMITTED;
         } catch (Exception ex) {

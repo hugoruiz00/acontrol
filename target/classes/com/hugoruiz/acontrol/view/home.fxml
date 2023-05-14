@@ -166,7 +166,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TableView fx:id="paymentsTable" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="185.0" prefWidth="703.0">
+            <TableView fx:id="paymentsTable" editable="true" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="185.0" prefWidth="703.0">
               <columns>
                 <TableColumn fx:id="descriptionCol" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="-1.0" text="Descripción" />
                 <TableColumn fx:id="dateCol" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="Fecha" />
