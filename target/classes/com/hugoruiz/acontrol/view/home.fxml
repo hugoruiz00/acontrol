@@ -194,7 +194,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" styleClass="addbutton" text="Pagar total">
+                        <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#payTotal" prefHeight="31.0" prefWidth="128.0" styleClass="addbutton" text="Pagar total">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

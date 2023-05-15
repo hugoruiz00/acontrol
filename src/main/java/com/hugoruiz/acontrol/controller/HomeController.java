@@ -65,6 +65,18 @@ public class HomeController {
     }
     
     @FXML
+    void payTotal(ActionEvent event) throws IOException{
+        Person person = personsTable.getSelectionModel().getSelectedItem();
+        if (person != null) {
+            for (PersonPayment personPayment : personPaymentDao.getUnpaidPersonPaymentsByPerson(person)) {
+                personPayment.setIsPaid(true);
+                personPaymentDao.updatePersonPayment(personPayment);   
+            }
+            SceneController.getHomeScene(event);
+        }
+    }
+    
+    @FXML
     void fillPaymentsTable(MouseEvent event) {
         Person person = personsTable.getSelectionModel().getSelectedItem();
         if (person != null) {
