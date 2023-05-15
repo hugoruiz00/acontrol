@@ -23,7 +23,7 @@ public class SceneController {
 
     public static void getInitialScene(Stage stage) throws IOException {
         main = FXMLLoader.load(App.class.getResource("view/home.fxml"));
-        Scene scene = new Scene(main, 800, 600);
+        Scene scene = new Scene(main, 900, 500);
         stage.setTitle("AControl");
         stage.setScene(scene);
         stage.show();
@@ -43,7 +43,7 @@ public class SceneController {
 
     private static void changeScreen(ActionEvent event, String path) throws IOException {
         main = FXMLLoader.load(App.class.getResource(path));
-        Scene visitScene = new Scene(main,800, 600);
+        Scene visitScene = new Scene(main,900, 500);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(visitScene);
         window.show();

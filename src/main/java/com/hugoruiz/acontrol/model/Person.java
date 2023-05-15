@@ -47,7 +47,7 @@ public class Person {
     
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<PersonPayment> payments = new ArrayList<>();
-    
+
     public Person() {}
 
     public Person(int num, String name, String lastName, LocalDate birthdate, String address, String status) {

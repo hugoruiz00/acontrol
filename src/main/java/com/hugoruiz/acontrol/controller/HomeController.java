@@ -1,29 +1,24 @@
 package com.hugoruiz.acontrol.controller;
 
-import com.hugoruiz.acontrol.dao.PaymentDao;
 import com.hugoruiz.acontrol.dao.PersonDao;
+import com.hugoruiz.acontrol.dao.PersonPaymentDao;
 import com.hugoruiz.acontrol.model.Person;
 import com.hugoruiz.acontrol.model.PersonPayment;
 import java.io.IOException;
 import java.time.LocalDate;
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
 
 public class HomeController {
     @FXML
@@ -54,7 +49,7 @@ public class HomeController {
     private TableColumn<PersonPayment, Boolean> isPaidCol;
         
     PersonDao personDao = new PersonDao();
-    PaymentDao paymentDao = new PaymentDao();
+    PersonPaymentDao personPaymentDao = new PersonPaymentDao();
     
     ObservableList<Person> personsObservableList = FXCollections.observableArrayList();
     ObservableList<PersonPayment> paymentsObservableList = FXCollections.observableArrayList();
@@ -73,13 +68,16 @@ public class HomeController {
     void fillPaymentsTable(MouseEvent event) {
         Person person = personsTable.getSelectionModel().getSelectedItem();
         if (person != null) {
-            System.out.println();
             paymentsObservableList.clear();
             paymentsObservableList.addAll(person.getPayments());
             paymentsTable.setItems(paymentsObservableList);
             
             personSelected.setText(person.getName()+" "+person.getLastName());
-            totalPayment.setText("10");
+            float total = 0;
+            for (PersonPayment personPayment : personPaymentDao.getUnpaidPersonPaymentsByPerson(person)) {
+                total += personPayment.getPayment().getAmount();
+            }
+            totalPayment.setText("" + total);
         }
     }
     
@@ -90,11 +88,6 @@ public class HomeController {
         configureTables();
         fillTable();
         //exitBtn.setOnAction(SceneController::close);
-        //Person person = personDao.getPerson(8L);
-//        Payment payment = paymentDao.getPayment(1L);
-//        
-//        person.addPayment(payment);
-//        personDao.updatePerson(person);
     }
 
     private void setTexts() {
@@ -116,8 +109,7 @@ public class HomeController {
         dateCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPayment().getDate()));
         amountCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPayment().getAmount()));
         isPaidCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().isIsPaid()));
-        isPaidCol.setCellFactory(column -> new PaidCheckBoxTableCell());       
-        
+        isPaidCol.setCellFactory(column -> new PaidCheckBoxTableCell(personPaymentDao, totalPayment));
     }
 
     private void fillTable() {

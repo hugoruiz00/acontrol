@@ -8,13 +8,21 @@ import com.hugoruiz.acontrol.dao.PersonPaymentDao;
 import com.hugoruiz.acontrol.model.PersonPayment;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.CheckBoxTableCell;
 
 /**
  *
  * @author LENOVO
  */
-public class PaidCheckBoxTableCell extends CheckBoxTableCell<PersonPayment, Boolean> {
+public class PaidCheckBoxTableCell extends CheckBoxTableCell<PersonPayment, Boolean> {    
+    private PersonPaymentDao personPaymentDao;
+    private Label totalPayment;
+    
+    public PaidCheckBoxTableCell(PersonPaymentDao personPaymentDao, Label totalPayment){
+        this.personPaymentDao = personPaymentDao;
+        this.totalPayment = totalPayment;
+    }
     
     @Override
     public void updateItem(Boolean item, boolean empty) {
@@ -31,7 +39,13 @@ public class PaidCheckBoxTableCell extends CheckBoxTableCell<PersonPayment, Bool
                 personPayment.setIsPaid(checkBox.isSelected());
                 
                 boolean isSaved = new PersonPaymentDao().updatePersonPayment(personPayment);
-                if(!isSaved){
+                if(isSaved){
+                    float total = 0;
+                    for (PersonPayment pp : personPaymentDao.getUnpaidPersonPaymentsByPerson(personPayment.getPerson())) {
+                        total += pp.getPayment().getAmount();
+                    }
+                    totalPayment.setText("" + total);
+                }else{
                     Alert alert = new Alert(Alert.AlertType.ERROR, "No se ha podido actualizar el estado del pago");
                     alert.showAndWait();
                     checkBox.setSelected(!checkBox.isSelected());

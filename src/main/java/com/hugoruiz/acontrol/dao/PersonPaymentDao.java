@@ -4,6 +4,7 @@
  */
 package com.hugoruiz.acontrol.dao;
 
+import com.hugoruiz.acontrol.model.Person;
 import com.hugoruiz.acontrol.model.PersonPayment;
 import com.hugoruiz.acontrol.util.HibernateUtil;
 import java.util.ArrayList;
@@ -52,6 +53,18 @@ public class PersonPaymentDao {
     public List<PersonPayment> getPersonPayments() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("from PersonPayment", PersonPayment.class).list();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+    
+    public List<PersonPayment> getUnpaidPersonPaymentsByPerson(Person person) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {  
+            String query = "FROM PersonPayment PP WHERE PP.isPaid=false AND PP.person = :person";
+            return session.createQuery(query, PersonPayment.class)
+                    .setParameter("person", person)
+                    .list();
         } catch (Exception ex) {
             ex.printStackTrace();
             return new ArrayList<>();
