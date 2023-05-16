@@ -11,7 +11,6 @@ import java.io.IOException;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -25,9 +24,6 @@ public class AddPersonController {
     
     @FXML
     private TextField num, name, lastName, address;
-
-    @FXML
-    private DatePicker birthDate;
 
     @FXML
     private Label alertText;
@@ -57,7 +53,6 @@ public class AddPersonController {
         person.setNum(Integer.parseInt(num.getText().trim()));
         person.setName(name.getText().trim());
         person.setLastName(lastName.getText().trim());
-        person.setBirthdate(birthDate.getValue());
         person.setAddress(address.getText().trim());
         person.setStatus("Activo");
 
@@ -67,10 +62,6 @@ public class AddPersonController {
     private boolean validateInputs() {
         if (num.getText().trim().equals("")) {
             alertText.setText("*El número es obligatorio");
-            return false;
-        }
-        if (birthDate.getValue() == null) {
-            alertText.setText("*La fecha de nacimiento es obligatoria");
             return false;
         }
         if (name.getText().trim().equals("")) {

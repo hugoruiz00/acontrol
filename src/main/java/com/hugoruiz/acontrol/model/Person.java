@@ -50,7 +50,7 @@ public class Person {
 
     public Person() {}
 
-    public Person(int num, String name, String lastName, LocalDate birthdate, String address, String status) {
+    public Person(int num, String name, String lastName, String address, String status) {
         this.num = num;
         this.name = name;
         this.lastName = lastName;
@@ -161,9 +161,6 @@ public class Person {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.birthdate, other.birthdate)) {
-            return false;
-        }
         return Objects.equals(this.payments, other.payments);
     }
     
@@ -174,7 +171,6 @@ public class Person {
         hash = 23 * hash + this.num;
         hash = 23 * hash + Objects.hashCode(this.name);
         hash = 23 * hash + Objects.hashCode(this.lastName);
-        hash = 23 * hash + Objects.hashCode(this.birthdate);
         hash = 23 * hash + Objects.hashCode(this.address);
         hash = 23 * hash + Objects.hashCode(this.status);
         hash = 23 * hash + Objects.hashCode(this.payments);
