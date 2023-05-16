@@ -6,7 +6,7 @@ package com.hugoruiz.acontrol.controller;
 
 import com.hugoruiz.acontrol.dao.PaymentDao;
 import com.hugoruiz.acontrol.dao.PersonDao;
-import com.hugoruiz.acontrol.helpers.RegistrationStatus;
+import com.hugoruiz.acontrol.helpers.MovementStatus;
 import com.hugoruiz.acontrol.model.Payment;
 import com.hugoruiz.acontrol.model.Person;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class AddPaymentController {
             boolean isSaved = new PaymentDao().createPayment(payment);
             if (isSaved) {
                 addPaymentToPersons(payment);
-                RegistrationStatus.setIsPaymentAdded(true);
+                MovementStatus.setIsPaymentAdded(true);
                 alertText.setText("Cooperación agregada");
                 delayWindowClose(event);
             }

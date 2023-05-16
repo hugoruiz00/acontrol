@@ -171,7 +171,7 @@
                <children>
                   <HBox prefHeight="37.0" prefWidth="268.0" AnchorPane.leftAnchor="25.0">
                      <children>
-                        <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newWindow" prefHeight="31.0" prefWidth="128.0" styleClass="addbutton" text="Agregar persona">
+                        <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newPersonWindow" prefHeight="31.0" prefWidth="128.0" styleClass="addbutton" text="Agregar persona">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -185,7 +185,7 @@
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="96.0" AnchorPane.rightAnchor="30.0">
                      <children>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" styleClass="deletebutton" text="Dar de baja" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#removePersonWindow" prefHeight="31.0" prefWidth="96.0" styleClass="deletebutton" text="Dar de baja" />
                      </children>
                   </HBox>
                </children>

@@ -1,7 +1,7 @@
 package com.hugoruiz.acontrol.controller;
 
 import com.hugoruiz.acontrol.dao.PersonDao;
-import com.hugoruiz.acontrol.helpers.RegistrationStatus;
+import com.hugoruiz.acontrol.helpers.MovementStatus;
 import com.hugoruiz.acontrol.model.Person;
 import java.io.IOException;
 import javafx.collections.FXCollections;
@@ -44,11 +44,20 @@ public class PersonController {
     }
     
     @FXML
-    private void newWindow(ActionEvent event) throws IOException {
+    private void newPersonWindow(ActionEvent event) throws IOException {
         NewWindowController.getNewPersonWindow();
-        if(RegistrationStatus.isPersonAdded()) {
+        if(MovementStatus.isPersonAdded()) {
             refreshScreen(event);
-            RegistrationStatus.setIsPersonAdded(false);
+            MovementStatus.setIsPersonAdded(false);
+        }
+    }
+    
+    @FXML
+    private void removePersonWindow(ActionEvent event) throws IOException {
+        NewWindowController.getRemovePersonWindow();
+        if(MovementStatus.isPersonRemoved()) {
+            refreshScreen(event);
+            MovementStatus.setIsPersonRemoved(false);
         }
     }
     

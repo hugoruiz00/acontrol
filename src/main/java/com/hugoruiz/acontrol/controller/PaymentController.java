@@ -5,7 +5,7 @@
 package com.hugoruiz.acontrol.controller;
 
 import com.hugoruiz.acontrol.dao.PaymentDao;
-import com.hugoruiz.acontrol.helpers.RegistrationStatus;
+import com.hugoruiz.acontrol.helpers.MovementStatus;
 import com.hugoruiz.acontrol.model.Payment;
 import java.io.IOException;
 import javafx.collections.FXCollections;
@@ -54,9 +54,9 @@ public class PaymentController {
     @FXML
     private void newWindow(ActionEvent event) throws IOException {
         NewWindowController.getNewPaymentWindow();
-        if(RegistrationStatus.isPaymentAdded()) {
+        if(MovementStatus.isPaymentAdded()) {
             refreshScreen(event);
-            RegistrationStatus.setIsPaymentAdded(false);
+            MovementStatus.setIsPaymentAdded(false);
         }
     }
     

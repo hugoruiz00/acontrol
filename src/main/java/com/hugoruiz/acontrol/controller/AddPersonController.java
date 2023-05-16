@@ -5,7 +5,7 @@
 package com.hugoruiz.acontrol.controller;
 
 import com.hugoruiz.acontrol.dao.PersonDao;
-import com.hugoruiz.acontrol.helpers.RegistrationStatus;
+import com.hugoruiz.acontrol.helpers.MovementStatus;
 import com.hugoruiz.acontrol.model.Person;
 import java.io.IOException;
 import javafx.animation.PauseTransition;
@@ -41,7 +41,7 @@ public class AddPersonController {
             Person person = createPersonFromInput();
             boolean isSaved = new PersonDao().createPerson(person);
             if (isSaved) {
-                RegistrationStatus.setIsPersonAdded(true);
+                MovementStatus.setIsPersonAdded(true);
                 alertText.setText("Persona agregada");
                 delayWindowClose(event);
             }

@@ -22,6 +22,10 @@ public class NewWindowController {
         getPopUpWindow("view/addPerson.fxml");
     }
     
+    public static void getRemovePersonWindow() throws IOException {
+        getPopUpWindow("view/removePerson.fxml");
+    }
+    
     public static void getNewPaymentWindow() throws IOException {
         getPopUpWindow("view/addPayment.fxml");
     }

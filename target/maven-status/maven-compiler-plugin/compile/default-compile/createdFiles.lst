@@ -10,7 +10,6 @@ com\hugoruiz\acontrol\model\PersonPayment.class
 com\hugoruiz\acontrol\controller\AddPaymentController.class
 com\hugoruiz\acontrol\dao\PersonDao.class
 com\hugoruiz\acontrol\dao\PaymentDao.class
-com\hugoruiz\acontrol\helpers\RegistrationStatus.class
 com\hugoruiz\acontrol\controller\HomeController.class
 com\hugoruiz\acontrol\util\HibernateUtil.class
 com\hugoruiz\acontrol\App.class

@@ -8,18 +8,26 @@ package com.hugoruiz.acontrol.helpers;
  *
  * @author LENOVO
  */
-public final class RegistrationStatus {
+public final class MovementStatus {
 
-    private RegistrationStatus() {}
+    private MovementStatus() {}
 
-    private static boolean isPersonAdded, isPaymentAdded;
+    private static boolean isPersonAdded, isPaymentAdded, isPersonRemoved;
 
     public static boolean isPersonAdded() {
         return isPersonAdded;
     }
 
     public static void setIsPersonAdded(boolean isPersonAdded) {
-        RegistrationStatus.isPersonAdded = isPersonAdded;
+        MovementStatus.isPersonAdded = isPersonAdded;
+    }
+
+    public static boolean isPersonRemoved() {
+        return isPersonRemoved;
+    }
+
+    public static void setIsPersonRemoved(boolean isPersonRemoved) {
+        MovementStatus.isPersonRemoved = isPersonRemoved;
     }
     
     public static boolean isPaymentAdded() {
@@ -27,6 +35,6 @@ public final class RegistrationStatus {
     }
 
     public static void setIsPaymentAdded(boolean isPaymentAdded) {
-        RegistrationStatus.isPaymentAdded = isPaymentAdded;
+        MovementStatus.isPaymentAdded = isPaymentAdded;
     }
 }
