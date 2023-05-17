@@ -30,7 +30,7 @@
             </HBox>
             <HBox prefHeight="55.0" prefWidth="200.0" spacing="25.0">
                <children>
-                  <TextField fx:id="num" maxHeight="35.0" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#validateDigits" prefHeight="35.0" promptText="Número" />
+                  <TextField fx:id="num" maxHeight="35.0" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" promptText="Número" />
                   <TextField fx:id="address" maxHeight="35.0" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="174.0" promptText="Barrio" />
                </children>
             </HBox>

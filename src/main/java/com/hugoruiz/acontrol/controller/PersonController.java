@@ -144,7 +144,9 @@ public class PersonController {
                         return true;
                     } else if (person.getAddress().toLowerCase().contains(lowerCaseFilter)) {
                         return true;
-                    } else return String.valueOf(person.getNum()).contains(lowerCaseFilter);
+                    } else if (person.getStatus().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }else return String.valueOf(person.getNum()).contains(lowerCaseFilter);
                 }));
         return filteredList;
     }

@@ -8,13 +8,15 @@ import com.hugoruiz.acontrol.dao.PersonDao;
 import com.hugoruiz.acontrol.helpers.MovementStatus;
 import com.hugoruiz.acontrol.model.Person;
 import java.io.IOException;
+import java.util.function.UnaryOperator;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.control.TextFormatter;
 import javafx.util.Duration;
+import javafx.util.converter.IntegerStringConverter;
 
 /**
  *
@@ -29,10 +31,16 @@ public class AddPersonController {
     private Label alertText;
     
     @FXML
-    private void validateDigits(KeyEvent event) {
-        if (!Character.isDigit(event.getCharacter().charAt(0))) {
-            event.consume();
-        }
+    private void initialize() {
+        UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("\\d*")) { 
+                return change;
+            }
+            return null;
+        };
+
+        num.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
     }
 
     @FXML
