@@ -50,4 +50,20 @@ public class PaymentDao {
             return new ArrayList<>();
         }
     }
+    
+    public Boolean deletePayment(Payment payment) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.remove(payment);
+            transaction.commit();
+            return transaction.getStatus() == TransactionStatus.COMMITTED;
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return false;
+    }
 }

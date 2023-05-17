@@ -54,7 +54,6 @@ public class Person {
         this.num = num;
         this.name = name;
         this.lastName = lastName;
-        this.birthdate = birthdate;
         this.address = address;
         this.status = status;
     }

@@ -22,13 +22,13 @@
             <children>
                 <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
                     <image>
-                        <Image url="@../images/logopet.png" />
+                        <Image url="@../images/logo.png" />
                     </image>
                     <viewport>
                         <Rectangle2D />
                     </viewport>
                     <VBox.margin>
-                        <Insets bottom="20.0" left="35.0" right="20.0" top="35.0" />
+                        <Insets bottom="10.0" left="35.0" right="20.0" top="35.0" />
                     </VBox.margin>
                 </ImageView>
                 <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" styleClass="wtext" text="AControl" textAlignment="CENTER">
@@ -66,6 +66,21 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                 </Button>
+                <Button alignment="BASELINE_LEFT" defaultButton="true" graphicTextGap="8.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" text="Cooperaciones">
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/nurse-16.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="15.0" />
+                    </padding>
+                </Button>
             <Button alignment="BASELINE_LEFT" graphicTextGap="8.0" layoutX="10.0" layoutY="205.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showPersonScreen" prefHeight="50.0" text="Personas">
                <opaqueInsets>
                   <Insets />
@@ -90,21 +105,6 @@
                   <Insets bottom="30.0" />
                </VBox.margin>
             </Button>
-                <Button alignment="BASELINE_LEFT" defaultButton="true" graphicTextGap="8.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" text="Cooperaciones">
-                    <VBox.margin>
-                        <Insets bottom="30.0" />
-                    </VBox.margin>
-                    <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/nurse-16.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <padding>
-                        <Insets left="15.0" />
-                    </padding>
-                </Button>
             </children>
         </VBox>
         <VBox layoutX="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="-13.0">
@@ -147,8 +147,14 @@
             </TableView>
             <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="500.0">
                <children>
-                  <Button alignment="CENTER" layoutX="25.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newWindow" prefHeight="31.0" prefWidth="163.0" styleClass="addbutton" text="Agregar cooperación" />
-                  <Button layoutX="637.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" styleClass="deletebutton" text="Eliminar" AnchorPane.rightAnchor="30.0" />
+                  <Button alignment="CENTER" layoutX="25.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newWindow" prefHeight="31.0" prefWidth="163.0" styleClass="addbutton" text="Agregar cooperación">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button layoutX="637.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deletePayment" prefHeight="31.0" prefWidth="100.0" styleClass="deletebutton" text="Eliminar" AnchorPane.rightAnchor="30.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </AnchorPane>
             </children>

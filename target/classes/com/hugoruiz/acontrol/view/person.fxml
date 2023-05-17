@@ -23,13 +23,13 @@
             <children>
                 <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
                     <image>
-                        <Image url="@../images/logopet.png" />
+                        <Image url="@../images/logo.png" />
                     </image>
                     <viewport>
                         <Rectangle2D />
                     </viewport>
                     <VBox.margin>
-                        <Insets bottom="20.0" left="35.0" right="20.0" top="35.0" />
+                        <Insets bottom="10.0" left="35.0" right="20.0" top="35.0" />
                     </VBox.margin>
                 </ImageView>
                 <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" styleClass="wtext" text="AControl" textAlignment="CENTER">
@@ -67,21 +67,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                 </Button>
-                <Button alignment="BASELINE_LEFT" defaultButton="true" graphicTextGap="8.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" text="Personas">
-                    <VBox.margin>
-                        <Insets bottom="30.0" />
-                    </VBox.margin>
-                    <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/nurse-16.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <padding>
-                        <Insets left="15.0" />
-                    </padding>
-                </Button>
             <Button alignment="BASELINE_LEFT" graphicTextGap="8.0" layoutX="10.0" layoutY="205.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showPaymentScreen" prefHeight="50.0" text="Cooperaciones">
                <opaqueInsets>
                   <Insets />
@@ -102,7 +87,25 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
             </Button>
+                <Button alignment="BASELINE_LEFT" defaultButton="true" graphicTextGap="8.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" text="Personas">
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/nurse-16.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="15.0" />
+                    </padding>
+                </Button>
             </children>
         </VBox>
         <VBox layoutX="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="-13.0">
@@ -153,6 +156,9 @@
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                   </HBox>
@@ -161,8 +167,14 @@
                         <Button fx:id="changeStatusBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updatePersonStatus" prefHeight="31.0" prefWidth="100.0" styleClass="updatebutton" text="Dar permiso">
                            <HBox.margin>
                               <Insets right="10.0" />
-                           </HBox.margin></Button>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deletePerson" prefHeight="31.0" prefWidth="100.0" styleClass="deletebutton" text="Eliminar" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deletePerson" prefHeight="31.0" prefWidth="100.0" styleClass="deletebutton" text="Eliminar">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </HBox>
                </children>

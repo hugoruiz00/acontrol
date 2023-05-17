@@ -61,6 +61,15 @@ public class PaymentController {
     }
     
     @FXML
+    private void deletePayment(ActionEvent event) throws IOException {
+        Payment payment = paymentsTable.getSelectionModel().getSelectedItem();
+        if(payment!=null){
+            paymentDao.deletePayment(payment);
+            refreshScreen(event);
+        }
+    }
+    
+    @FXML
     private void refreshScreen(ActionEvent event) throws IOException {
         SceneController.getPaymentScene(event);
     }
