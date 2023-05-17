@@ -95,15 +95,28 @@
 -fx-font: 14px Roboto;
 }
 
-.deletebutton {
+.updatebutton {
 -fx-background-color: #fc583f;
 -fx-background-radius: 3;
 -fx-text-fill: #ffffff;
 -fx-font: 14px Roboto;
 }
 
-.deletebutton:hover {
+.updatebutton:hover {
 -fx-background-color: #e34d36;
+-fx-text-fill: #ffffff;
+-fx-font: 14px Roboto;
+}
+
+.deletebutton {
+-fx-background-color: #e01710;
+-fx-background-radius: 3;
+-fx-text-fill: #ffffff;
+-fx-font: 14px Roboto;
+}
+
+.deletebutton:hover {
+-fx-background-color: #c21711;
 -fx-text-fill: #ffffff;
 -fx-font: 14px Roboto;
 }

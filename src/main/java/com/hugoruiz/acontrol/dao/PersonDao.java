@@ -33,18 +33,20 @@ public class PersonDao {
         return false;
     }
     
-    public void updatePerson(Person person) {
+    public Boolean updatePerson(Person person) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.merge(person);
             transaction.commit();
+            return transaction.getStatus() == TransactionStatus.COMMITTED;
         } catch (Exception ex) {
             if (transaction != null) {
                 transaction.rollback();
             }
             ex.printStackTrace();
         }
+        return false;
     }
     
     public Person getPerson(Long id) {
@@ -63,5 +65,21 @@ public class PersonDao {
             ex.printStackTrace();
             return new ArrayList<>();
         }
+    }
+    
+    public Boolean deletePerson(Person person) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.remove(person);
+            transaction.commit();
+            return transaction.getStatus() == TransactionStatus.COMMITTED;
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return false;
     }
 }

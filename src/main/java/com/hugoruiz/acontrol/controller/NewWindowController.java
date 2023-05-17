@@ -19,20 +19,18 @@ import javafx.stage.Stage;
 public class NewWindowController {
 
     public static void getNewPersonWindow() throws IOException {
-        getPopUpWindow("view/addPerson.fxml");
-    }
-    
-    public static void getRemovePersonWindow() throws IOException {
-        getPopUpWindow("view/removePerson.fxml");
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("view/addPerson.fxml"));
+        getPopUpWindow(loader);
     }
     
     public static void getNewPaymentWindow() throws IOException {
-        getPopUpWindow("view/addPayment.fxml");
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("view/addPayment.fxml"));
+        getPopUpWindow(loader);
     }
 
-    private static void getPopUpWindow(String path) throws IOException {
+    private static void getPopUpWindow(FXMLLoader loader) throws IOException {
+        Pane main = loader.load();
         Stage stage = new Stage();
-        Pane main = FXMLLoader.load(App.class.getResource(path));
         stage.setScene(new Scene(main));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("AControl");

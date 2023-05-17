@@ -12,7 +12,7 @@ public final class MovementStatus {
 
     private MovementStatus() {}
 
-    private static boolean isPersonAdded, isPaymentAdded, isPersonRemoved;
+    private static boolean isPersonAdded, isPaymentAdded;
 
     public static boolean isPersonAdded() {
         return isPersonAdded;
@@ -20,14 +20,6 @@ public final class MovementStatus {
 
     public static void setIsPersonAdded(boolean isPersonAdded) {
         MovementStatus.isPersonAdded = isPersonAdded;
-    }
-
-    public static boolean isPersonRemoved() {
-        return isPersonRemoved;
-    }
-
-    public static void setIsPersonRemoved(boolean isPersonRemoved) {
-        MovementStatus.isPersonRemoved = isPersonRemoved;
     }
     
     public static boolean isPaymentAdded() {

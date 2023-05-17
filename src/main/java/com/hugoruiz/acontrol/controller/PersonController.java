@@ -10,24 +10,29 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class PersonController {
     @FXML
-    private Label title, stats;
+    private Label title;
     
     @FXML
     private TextField searchBar;
     
     @FXML
+    private Button changeStatusBtn;
+    
+    @FXML
     private TableView<Person> personsTable;
     
     @FXML
-    private TableColumn<?, ?> numCol, nameCol, lastNameCol, addressCol;
+    private TableColumn<?, ?> numCol, nameCol, lastNameCol, addressCol, statusCol;
     
     PersonDao personDao = new PersonDao();
     
@@ -44,6 +49,16 @@ public class PersonController {
     }
     
     @FXML
+    void personSelected(MouseEvent event) {
+        Person person = personsTable.getSelectionModel().getSelectedItem();
+        if (person!=null && person.getStatus().equals("Activo")) {
+            changeStatusBtn.setText("Dar permiso");
+        }else if(person!=null && person.getStatus().equals("En permiso")){
+            changeStatusBtn.setText("Reactivar");
+        } 
+    }
+    
+    @FXML
     private void newPersonWindow(ActionEvent event) throws IOException {
         NewWindowController.getNewPersonWindow();
         if(MovementStatus.isPersonAdded()) {
@@ -53,11 +68,25 @@ public class PersonController {
     }
     
     @FXML
-    private void removePersonWindow(ActionEvent event) throws IOException {
-        NewWindowController.getRemovePersonWindow();
-        if(MovementStatus.isPersonRemoved()) {
+    private void updatePersonStatus(ActionEvent event) throws IOException {
+        Person person = personsTable.getSelectionModel().getSelectedItem();
+        if (person!=null && person.getStatus().equals("Activo")) {
+            person.setStatus("En permiso");
+            personDao.updatePerson(person);
             refreshScreen(event);
-            MovementStatus.setIsPersonRemoved(false);
+        }else if(person!=null && person.getStatus().equals("En permiso")){
+            person.setStatus("Activo");
+            personDao.updatePerson(person);
+            refreshScreen(event);
+        }
+    }
+    
+    @FXML
+    private void deletePerson(ActionEvent event) throws IOException {
+        Person person = personsTable.getSelectionModel().getSelectedItem();
+        if(person!=null){
+            personDao.deletePerson(person);
+            refreshScreen(event);
         }
     }
     
@@ -76,7 +105,6 @@ public class PersonController {
 
     private void setTexts() {
         title.setText("Personas");
-        setDbInfo();
     }
 
     private void setObservableList() {
@@ -89,6 +117,7 @@ public class PersonController {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         addressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
+        statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
     }
 
     private void fillTable() {
@@ -118,10 +147,5 @@ public class PersonController {
                     } else return String.valueOf(person.getNum()).contains(lowerCaseFilter);
                 }));
         return filteredList;
-    }
-
-    private void setDbInfo() {
-        //stats.setText(String.format("Total vets in database: %s", vetDao.getVetsNumber()));
-        stats.setText("Test");
     }
 }
