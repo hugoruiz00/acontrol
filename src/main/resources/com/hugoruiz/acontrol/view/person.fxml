@@ -103,21 +103,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-                <Button id="exitBtn" fx:id="exitBtn" alignment="BASELINE_LEFT" graphicTextGap="8.0" layoutX="10.0" layoutY="365.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" styleClass="exitBtn" text="Exit">
-                    <graphic>
-                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/close-window-16.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <padding>
-                        <Insets left="20.0" />
-                    </padding>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-                </Button>
             </children>
         </VBox>
         <VBox layoutX="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="-13.0">
@@ -173,11 +158,11 @@
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="96.0" AnchorPane.rightAnchor="30.0">
                      <children>
-                        <Button fx:id="changeStatusBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updatePersonStatus" prefHeight="31.0" prefWidth="105.0" styleClass="updatebutton" text="Dar permiso">
+                        <Button fx:id="changeStatusBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updatePersonStatus" prefHeight="31.0" prefWidth="100.0" styleClass="updatebutton" text="Dar permiso">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin></Button>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deletePerson" prefHeight="31.0" prefWidth="79.0" styleClass="deletebutton" text="Eliminar" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deletePerson" prefHeight="31.0" prefWidth="100.0" styleClass="deletebutton" text="Eliminar" />
                      </children>
                   </HBox>
                </children>

@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -23,9 +24,10 @@ public class SceneController {
 
     public static void getInitialScene(Stage stage) throws IOException {
         main = FXMLLoader.load(App.class.getResource("view/home.fxml"));
-        Scene scene = new Scene(main, 900, 500);
+        Scene scene = new Scene(main, 700, 500);
         stage.setTitle("AControl");
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 
@@ -42,8 +44,10 @@ public class SceneController {
     }
 
     private static void changeScreen(ActionEvent event, String path) throws IOException {
+        double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
+        double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
         main = FXMLLoader.load(App.class.getResource(path));
-        Scene visitScene = new Scene(main,900, 500);
+        Scene visitScene = new Scene(main, screenWidth, screenHeight);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(visitScene);
         window.show();
